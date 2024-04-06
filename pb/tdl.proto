@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package tdl;
+
+option go_package = "github.com/XMLHexagram/tdl_ffi;pb";
+
+service Tdl {
+  // Sends a greeting
+  rpc GetAction (ActionRequest) returns (ActionResponse) {}
+  rpc RunScript (RunScriptRequest) returns (RunScriptResponse) {}
+  rpc AuthInput (AuthInputRequest) returns (AuthInputResponse) {}
+}
+
+message RunScriptRequest {
+  string script = 1;
+}
+
+message RunScriptResponse {
+  bool is_success_start = 1;
+}
+
+message ActionRequest {}
+
+message ActionResponse {
+  string action_type  = 1;
+  string payload = 2;
+  string raw_message = 3;
+}
+
+message AuthInputRequest {
+  string input = 1;
+}
+
+message AuthInputResponse {
+}

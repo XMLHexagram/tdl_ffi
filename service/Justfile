@@ -1,0 +1,11 @@
+set shell := ["zsh", "-uc"]
+
+test_login:
+    #!/usr/bin/env sh
+    go test --tags ffi -run TestService_Login
+
+
+test_login_input input:
+    #!/usr/bin/env sh
+    export INPUT={{input}}
+    go test --tags ffi -run TestService_AuthInput
